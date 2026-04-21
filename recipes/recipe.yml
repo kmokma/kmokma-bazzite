@@ -4,9 +4,8 @@ name: kmokma-bazzite
 description: This is my custom Bazzite DX Nvidia image
 base-image: ghcr.io/ublue-os/bazzite-dx-nvidia
 image-version: stable
-
 modules:
-- type: dnf
+  - type: dnf
     repos:
       files:
         - https://packages.microsoft.com/yumrepos/vscode/config.repo
@@ -17,7 +16,6 @@ modules:
         - code
         - micro
         - starship
-
   - type: default-flatpaks
     configurations:
       - notify: true
@@ -48,10 +46,8 @@ modules:
           - io.gitlab.Goodvibes
           - com.blitzfc.qbz
       - scope: user
-
   - type: script
     scripts:
       - remove-apps.sh
       - signal-setup.sh
-
   - type: signing
