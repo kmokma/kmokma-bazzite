@@ -19,54 +19,51 @@ modules:
 
   - type: dnf
     repos:
-      copr:
-        - atim/starship
+      - https://packages.microsoft.com/yumrepos/vscode/config.repo
+    copr:
+      - atim/starship
     install:
-      packages:
-        - micro
-        - starship
+      - code
+      - micro
+      - starship
     remove:
-      packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
-        - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+      - firefox
+      - firefox-langpacks
 
   - type: default-flatpaks
     configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
+      - notify: true
         scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
-        - com.brave.Browser
-        - io.ente.auth
-        - io.ente.photos
-        - org.fedoraproject.MediaWriter
-        - com.github.tchx84.Flatseal
-        - net.code_industry.MasterPDFEditor
-        - br.eng.silas.qpdftools
-        - com.notesnook.Notesnook
-        - com.collaboraoffice.Office
-        - me.proton.Mail
-        - me.proton.Pass
-        - com.protonvpn.www
-        - org.signal.Signal
-        - com.stremio.Stremio
-        - com.calibre_ebook.calibre
-        - org.kde.skanlite
-        - org.kde.kasts
-        - org.kde.kdiff3
-        - org.kde.kommit
-        - org.kde.kaidan
-        - org.kde.kweather
-        - io.github.pwr_solaar.solaar
-        - com.usebottles.bottles
-        - io.gitlab.Goodvibes
-        - com.blitzfc.qbz
-      - scope: user # Also add Flathub user repo, but no user packages
+        install:
+          - com.brave.Browser
+          - io.ente.auth
+          - io.ente.photos
+          - org.fedoraproject.MediaWriter
+          - net.code_industry.MasterPDFEditor
+          - br.eng.silas.qpdftools
+          - com.notesnook.Notesnook
+          - com.collaboraoffice.Office
+          - me.proton.Mail
+          - me.proton.Pass
+          - com.protonvpn.www
+          - org.signal.Signal
+          - com.stremio.Stremio
+          - com.calibre_ebook.calibre
+          - org.kde.skanlite
+          - org.kde.kasts
+          - org.kde.kdiff3
+          - org.kde.kommit
+          - org.kde.kaidan
+          - org.kde.kweather
+          - io.github.pwr_solaar.solaar
+          - com.usebottles.bottles
+          - io.gitlab.Goodvibes
+          - com.blitzfc.qbz
+      - scope: user
 
   - type: script
     scripts:
+      - remove-apps.sh
       - signal-setup.sh
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
