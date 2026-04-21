@@ -6,15 +6,17 @@ base-image: ghcr.io/ublue-os/bazzite-dx-nvidia
 image-version: stable
 
 modules:
-  - type: dnf
+- type: dnf
     repos:
-      - https://packages.microsoft.com/yumrepos/vscode/config.repo
-    copr:
-      - atim/starship
+      files:
+        - https://packages.microsoft.com/yumrepos/vscode/config.repo
+      copr:
+        - atim/starship
     install:
-      - code
-      - micro
-      - starship
+      packages:
+        - code
+        - micro
+        - starship
 
   - type: default-flatpaks
     configurations:
