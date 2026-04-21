@@ -26,9 +26,6 @@ modules:
       - code
       - micro
       - starship
-    remove:
-      - firefox
-      - firefox-langpacks
 
   - type: default-flatpaks
     configurations:
