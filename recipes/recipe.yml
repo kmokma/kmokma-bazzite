@@ -7,10 +7,10 @@ image-version: stable
 modules:
   - type: dnf
     repos:
-      files:
+    files:
         - https://packages.microsoft.com/yumrepos/vscode/config.repo
       copr:
-        - atim/starship
+        - atim/starship 
     install:
       packages:
         - code
