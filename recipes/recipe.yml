@@ -40,7 +40,6 @@ modules:
           - org.kde.kasts
           - org.kde.kdiff3
           - org.kde.kommit
-          - org.kde.kaidan
           - org.kde.kweather
           - io.github.pwr_solaar.solaar
           - com.usebottles.bottles
