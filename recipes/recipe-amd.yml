@@ -5,4 +5,4 @@ base-image: ghcr.io/ublue-os/bazzite
 image-version: stable
 
 modules:
-  - from-file: recipes/recipe-common.yml
+  - from-file: recipe-common.yml
