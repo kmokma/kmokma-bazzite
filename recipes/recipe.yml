@@ -1,53 +1,8 @@
----
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: kmokma-bazzite
-description: This is my custom Bazzite DX Nvidia image
+description: This is my custom Bazzite Nvidia image
 base-image: ghcr.io/ublue-os/bazzite-nvidia
 image-version: stable
+
 modules:
-  - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:latest
-    repos:
-      files:
-        - https://packages.microsoft.com/yumrepos/vscode/config.repo
-      copr:
-        - atim/starship 
-    install:
-      packages:
-        - code
-        - micro
-        - starship
-  - type: default-flatpaks
-    configurations:
-      - notify: true
-        scope: system
-        install:
-          - com.brave.Browser
-          - io.ente.auth
-          - io.ente.photos
-          - org.fedoraproject.MediaWriter
-          - net.code_industry.MasterPDFEditor
-          - br.eng.silas.qpdftools
-          - com.notesnook.Notesnook
-          - com.collaboraoffice.Office
-          - me.proton.Mail
-          - me.proton.Pass
-          - com.protonvpn.www
-          - org.signal.Signal
-          - com.stremio.Stremio
-          - com.calibre_ebook.calibre
-          - org.kde.skanlite
-          - org.kde.kasts
-          - org.kde.kdiff3
-          - org.kde.kommit
-          - org.kde.kweather
-          - io.github.pwr_solaar.solaar
-          - com.usebottles.bottles
-          - io.gitlab.Goodvibes
-          - com.blitzfc.qbz
-      - scope: user
-  - type: script
-    scripts:
-      - remove-apps.sh
-      - signal-setup.sh
-  - type: signing
+  - from-file: recipes/recipe-common.yml
